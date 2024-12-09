@@ -11,6 +11,10 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v4
       - run: touch test.txt
       - run: |
