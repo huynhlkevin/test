@@ -12,3 +12,5 @@ jobs:
       - uses: actions/checkout@v4
       - run: touch test.txt
       - run: gh pr create --draft --title "Test Pull Request"
+        env:
+          GH_TOKEN: ${{ github.token }}
