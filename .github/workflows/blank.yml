@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: touch test.txt
+      - run: git commit test.txt -m "Add test.txt"
       - run: gh pr create --draft --fill
         env:
           GH_TOKEN: ${{ github.token }}
