@@ -18,13 +18,6 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - uses: actions/checkout@v4
       - run: touch test.txt
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "test-branch"
-          git add test.txt
-          git commit test.txt -m "Test"
-          git push -u origin "test-branch"
-      - run: gh pr create --draft --fill --base ${{ github.ref_name }}
+      - run: gh pr create --draft --fill --base ${{ github.ref_name }} --head "new-branch"
         env:
           GH_TOKEN: ${{ github.token }}
